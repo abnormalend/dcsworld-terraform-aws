@@ -21,14 +21,14 @@ data "aws_ami" "windows" {
   owners = ["801119661308"] 
 }
 
-data "aws_iam_policy" "cloudwatch_policy" {
-  name = "CloudWatchAgentServerPolicy"
-}
+# data "aws_iam_policy" "cloudwatch_policy" {
+#   name = "CloudWatchAgentServerPolicy"
+# }
 
-data "http" "my_ip" {
-  url = "http://ifconfig.me/ip"
-}
+# data "http" "my_ip" {
+#   url = "http://ifconfig.me/ip"
+# }
 
-locals {
-  my_ip_address = trimspace(data.http.my_ip.response_body)
-}
+# locals {
+#   my_ip_address = trimspace(data.http.my_ip.response_body)
+# }

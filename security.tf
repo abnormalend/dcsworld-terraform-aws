@@ -57,11 +57,11 @@ resource "aws_vpc_security_group_ingress_rule" "dcsworld_web" {
 resource "aws_vpc_security_group_ingress_rule" "instance_connect_port" {
   security_group_id = aws_security_group.dcsworld_security.id
   description       = "Allows shell access through EC2 instance connect"
-  cidr_ipv4         = "${local.my_ip_address}/32"
+  cidr_ipv4         = "98.250.213.24/32"
   from_port         = 3389
   to_port           = 3389
   ip_protocol       = "tcp"
-  tags              = { Name = "EC2 Instance Connect" }
+  tags              = { Name = "RDP" }
 }
 
 resource "aws_vpc_security_group_ingress_rule" "tacview" {

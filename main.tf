@@ -12,7 +12,7 @@ resource "aws_instance" "dcsworld" {
   # }
 
     root_block_device {
-      volume_size = 200
+      volume_size = 400
       volume_type = "gp3"
     }
   tags = {

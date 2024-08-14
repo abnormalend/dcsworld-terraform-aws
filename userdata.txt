@@ -1,3 +1,7 @@
 <powershell>
 Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
+$myDownloadUrl = "https://www.digitalcombatsimulator.com/upload/iblock/4d4/p9f5b7fgsxdp44ipiq30p1rql0w4dbpf/DCS_World_Server_modular.exe"
+New-Item -Path "c:\" -Name "downloads" -ItemType "directory"
+Invoke-WebRequest $myDownloadUrl -OutFile c:\downloads\DCS_World_Server_modular.exe
+Start-Process -FilePath "c:\downloads\DCS_World_Server_modular.exe" -Verb RunAs -ArgumentList "/SILENT"
 </powershell>
