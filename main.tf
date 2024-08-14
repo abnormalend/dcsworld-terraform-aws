@@ -1,7 +1,7 @@
 resource "aws_instance" "dcsworld" {
   ami           = data.aws_ami.windows.id
   instance_type = var.instance_type
-
+  key_name = "dcsworld"
   # instance_market_options {
   #   market_type = "spot"
   #   spot_options {
