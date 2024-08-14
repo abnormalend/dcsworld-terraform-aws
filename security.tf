@@ -37,7 +37,7 @@ resource "aws_vpc_security_group_ingress_rule" "dcsworld_tcp" {
 
 resource "aws_vpc_security_group_ingress_rule" "dcsworld_web" {
   security_group_id = aws_security_group.dcsworld_security.id
-  description       = "Allows whole world access to the dcsworld server port"
+  description       = "Allows whole world access to the dcsworld web port"
   cidr_ipv4         = "0.0.0.0/0"
   from_port         = 8088 
   to_port           = 8088 
@@ -62,4 +62,24 @@ resource "aws_vpc_security_group_ingress_rule" "instance_connect_port" {
   to_port           = 3389
   ip_protocol       = "tcp"
   tags              = { Name = "EC2 Instance Connect" }
+}
+
+resource "aws_vpc_security_group_ingress_rule" "tacview" {
+  security_group_id = aws_security_group.dcsworld_security.id
+  description       = "Access for the Tacview tool"
+  cidr_ipv4         = "0.0.0.0/0"
+  from_port         = 42674
+  to_port           = 42675
+  ip_protocol       = "tcp"
+  tags              = { Name = "TacView Realtime Telemetry & Remote Control" }
+}
+
+resource "aws_vpc_security_group_ingress_rule" "dcs_radio" {
+  security_group_id = aws_security_group.dcsworld_security.id
+  description       = "Access for DCS Radio Comms"
+  cidr_ipv4         = "0.0.0.0/0"
+  from_port         = 5002
+  to_port           = 5003
+  ip_protocol       = "tcp"
+  tags              = { Name = "DCS Radio" }
 }
