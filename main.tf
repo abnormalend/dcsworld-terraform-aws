@@ -27,7 +27,7 @@ resource "aws_instance" "dcsworld" {
 
   user_data_base64            = filebase64("${path.module}/userdata.txt") 
   user_data_replace_on_change = true
-  get_password_data = true
+  # get_password_data = true
 }
 
 resource "aws_route53_record" "dcsworld" {
